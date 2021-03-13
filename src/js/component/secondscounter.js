@@ -2,8 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 //create your first component
-
 export function SecondsCounter(props) {
+	const list = [];
+	for (let index = 0; index < props.digitos.length; index++) {
+		list.push(<div>{props.digitos[index]}</div>);
+	}
+
 	return (
 		<div className="bigCounter">
 			<div id="clock">
@@ -18,21 +22,11 @@ export function SecondsCounter(props) {
 					<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
 				</svg>
 			</div>
-			<div>{props.digSix % 10}</div>
-			<div>{props.digFive % 10}</div>
-			<div>{props.digFour % 10}</div>
-			<div>{props.digThree % 10}</div>
-			<div>{props.digTwo % 10}</div>
-			<div>{props.digOne % 10}</div>
+			{list}
 		</div>
 	);
 }
 
 SecondsCounter.propTypes = {
-	digOne: PropTypes.number,
-	digTwo: PropTypes.number,
-	digThree: PropTypes.number,
-	digFour: PropTypes.number,
-	digFive: PropTypes.number,
-	digSix: PropTypes.number
+	digitos: PropTypes.string
 };

@@ -13,24 +13,12 @@ import { SecondsCounter } from "./component/secondscounter.js";
 //render your react application
 let counter = 0;
 setInterval(function() {
-	const six = Math.floor(counter / 1000000);
-	const five = Math.floor(counter / 100000);
-	const four = Math.floor(counter / 10000);
-	const three = Math.floor(counter / 100);
-	const two = Math.floor(counter / 10);
-	const one = Math.floor(counter / 1);
+	const digitos = counter.toString().padStart(6, "0");
 	counter++;
 
 	console.log(counter);
 	ReactDOM.render(
-		<SecondsCounter
-			digOne={one}
-			digTwo={two}
-			digThree={three}
-			digFour={four}
-			digFive={five}
-			digSix={six}
-		/>,
+		<SecondsCounter digitos={digitos} />,
 		document.querySelector("#app")
 	);
 }, 1000);
